@@ -63,6 +63,8 @@ pcl_ros::PassThrough::PassThrough(const rclcpp::NodeOptions & options)
       std::placeholders::_1));
 
   config_callback(get_parameters(param_names));
+
+  createPublishers();
 }
 
 void pcl_ros::PassThrough::filter(

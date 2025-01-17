@@ -155,6 +155,8 @@ pcl_ros::CropBox::CropBox(const rclcpp::NodeOptions & options)
       std::placeholders::_1));
 
   config_callback(get_parameters(param_names));
+
+  createPublishers();
 }
 
 void

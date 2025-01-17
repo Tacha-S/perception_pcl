@@ -87,6 +87,8 @@ pcl_ros::StatisticalOutlierRemoval::StatisticalOutlierRemoval(const rclcpp::Node
       std::placeholders::_1));
 
   config_callback(get_parameters(param_names));
+
+  createPublishers();
 }
 
 void
