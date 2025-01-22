@@ -188,7 +188,15 @@ pcl_ros::Filter::createPublishers()
       if (pub_output_->get_subscription_count() == 0) {
         unsubscribe();
       } else {
-        subscribe();
+        if (use_indices_) {
+          if (!sub_input_filter_.getSubscriber() || !sub_indices_filter_.getSubscriber()) {
+            subscribe();
+          }
+        } else {
+          if (!sub_input_) {
+            subscribe();
+          }
+        }
       }
     };
   pub_output_ = create_publisher<PointCloud2>("output", max_queue_size_, pub_options);
